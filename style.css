@@ -1,0 +1,36 @@
+body{
+    font-family: sans-serif;
+    background-color: #7CC6FE;
+}
+.title{
+    text-align: center;
+}
+
+.playlist{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+    text-align: center;
+}
+
+.song{
+    background-color:#FFFFFF;
+    border: .2rem solid black;
+    padding: 1em;
+}
+
+.song img{
+    width: 8rem;
+    height: 8rem;
+    object-fit:cover;
+
+}
+
+button{
+    padding: 1em;
+    font-size: 1rem;
+}
+
+.song .playing{
+    opacity: 0.5;
+}
