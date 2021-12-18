@@ -98,7 +98,7 @@ const appendToList = function(item) {
 //Filter Form shortcut
 const filterForm = document.querySelector(`#filter`)
 
-filterForm.addEventListener(`submit`, function(event) {
+filterForm.addEventListener(`input`, function(event) {
   //Stop for from refreshing
   event.preventDefault()
 
@@ -108,7 +108,7 @@ filterForm.addEventListener(`submit`, function(event) {
 
 const filterAndPrint = function() {
   //Filter songs
-  const nameSearch = filterForm.querySelector(`#songName`).value
+  const nameSearch = filterForm.querySelector(`#songName`).value || ``
 
   //Sets playlist to blank to refrain from unwanted adding
   document.querySelector(`#playlist`).innerHTML = ``
@@ -122,8 +122,12 @@ const filterAndPrint = function() {
   //Appends each object to HTML
   .forEach(appendToList)
 }
+
 //Print results on page load
-filterAndPrint()
+window.addEventListener(`load`, function(event) {
+  filterAndPrint()
+})
+
 
 
 
