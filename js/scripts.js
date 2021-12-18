@@ -26,15 +26,7 @@ const appendToList = function(item, index) {
     </article>
   `
 }
-
-filterForm.addEventListener(`input`, function(event) {
-  //Stop for from refreshing
-  event.preventDefault()
-
-  //Run filters and print results
-  filterAndPrint()
-})
-
+//Filter each item and them to the playlist
 const filterAndPrint = function() {
   //Filter songs
   const nameSearch = filterForm.querySelector(`#songName`).value || ``
@@ -51,6 +43,14 @@ const filterAndPrint = function() {
   //Appends each object to HTML
   .forEach(appendToList)
 }
+
+filterForm.addEventListener(`input`, function(event) {
+  //Stop for from refreshing
+  event.preventDefault()
+
+  //Run filters and print results
+  filterAndPrint()
+})
 
 //Print results on page load
 window.addEventListener(`load`, function(event) {
