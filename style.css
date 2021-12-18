@@ -1,17 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 
+/* Universal Style */
 body{
     font-family: sans-serif;
     background-color: #7CC6FE;
+    color: #242425;
 }
+
+/* Funtime Music Styles */
 .title{
     text-align: center;
     font-family: 'Berkshire Swash', cursive;
+    font-size: 4rem;
+  
 }
 
+/* Filter styles */
+.filter{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+.filterh3{
+   text-align: center;
+}
+
+.search, .sort{
+    border: none;
+}
+
+/* Playlist Style */
 .playlist{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap: 1em;
     text-align: center;
 }

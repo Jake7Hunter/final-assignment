@@ -7,7 +7,7 @@ const allSongs = [
       artist: `Adele`,
       length: 378,
       audio: `love-is-a-game.mp3`,
-      playing: true,
+      playing: false,
     }, {
         songId: 2,
         image: `soho-2.jpeg`,
@@ -96,11 +96,11 @@ const allSongs = [
     }
 
 //Filter songs
-const maxLength = 200
+const maxLength = 400
 const perPage = 3
 
 //Filter each song
-allSongs.filter(item => item.length > 200)
+allSongs.filter(item => item.length < maxLength)
 //Appends each object to HTML
 .forEach(appendToList)
 
