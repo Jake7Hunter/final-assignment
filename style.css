@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Oswald:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
 
 /* Universal Style */
@@ -7,9 +8,24 @@ body{
     color: #242425;
 }
 
+h2{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+}
+
+h3{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+
 button{
     padding: 1em;
     font-size: 1rem;
+}
+
+label{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
 }
 
 /* Funtime Music Styles */
