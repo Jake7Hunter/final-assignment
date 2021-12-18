@@ -82,27 +82,53 @@ const allSongs = [
         playing: false,
     } 
 ]
-    // Append a new list item with the Object data passed to the function
-    const appendToList = function(item) {
-        document.querySelector(`#playlist`).innerHTML += `
-        <article class="song ${(item.playing) ? `playing` : ""}">
-            <img src="./assets/covers/${item.image}" alt="${item.name}">
-            <h2>${item.name}</h2>
-            <h3>${item.artist}</h3>
-            <h3>${(item.length/60).toFixed(2)} mins</h3>
-            <button id="playButton${item.songId}">Play</button>
-        </article>
-      `
-    }
+// Append a new list item with the Object data passed to the function
+const appendToList = function(item) {
+    document.querySelector(`#playlist`).innerHTML += `
+    <article class="song ${(item.playing) ? `playing` : ""}">
+        <img src="./assets/covers/${item.image}" alt="${item.name}">
+        <h2>${item.name}</h2>
+        <h3>${item.artist}</h3>
+        <h3>${(item.length/60).toFixed(2)} mins</h3>
+        <button id="playButton${item.songId}">Play</button>
+    </article>
+  `
+}
 
-//Filter songs
-const maxLength = 400
-const perPage = 3
+//Filter Form shortcut
+const filterForm = document.querySelector(`#filter`)
 
-//Filter each song
-allSongs.filter(item => item.length < maxLength)
-//Appends each object to HTML
-.forEach(appendToList)
+filterForm.addEventListener(`submit`, function(event) {
+  //Stop for from refreshing
+  event.preventDefault()
+
+  //Run filters and print results
+  filterAndPrint()
+})
+
+const filterAndPrint = function() {
+  //Filter songs
+  const nameSearch = filterForm.querySelector(`#songName`).value
+
+  //Sets playlist to blank to refrain from unwanted adding
+  document.querySelector(`#playlist`).innerHTML = ``
+
+  //Create list in HTML after filters run
+  allSongs
+  //Filter by search
+  .filter(item => item.name.toUpperCase().includes(nameSearch.toUpperCase())
+  ||item.artist.toUpperCase().includes(nameSearch.toUpperCase()))
+
+  //Appends each object to HTML
+  .forEach(appendToList)
+}
+//Print results on page load
+filterAndPrint()
+
+
+
+
+
 
 
     

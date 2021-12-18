@@ -11,19 +11,19 @@
 <body>
     <header>
         <h1 class="title">Funtime Music Player</h1>
-        <!-- Add in sorting and filter features -->
-        <h3 class="filterh3">Filter:</h3>
-        <form class="filter">
+        <!-- sorting and filter features -->
+        <h3 class="filterh3">Filter</h3>
+        <form class="filter" id="filter">
           <fieldset class="search">
-                <label for="fname">Song Title:</label>
-                <input type="text" id="songName" name="songName">
+                <label for="songName">Song Title:</label>
+                <input type="search" id="songName" name="songName">
             </fieldset>
 
             <fieldset class="sort">
                 <label for="songSort">Sort:</label>
                 <select name="songSort" id="songSort">
-                  <option value="lengthHigh">Price, highest to lowest</option>
-                  <option value="lengthLow">Price, lowest to highest</option>
+                  <option value="lengthLong">Length, Longest to Shortest</option>
+                  <option value="lengthShort">Length, Shortest to Longest</option>
                   <option value="alpha">A to Z</option>
                 </select>
               </fieldset>
