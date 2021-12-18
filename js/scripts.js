@@ -54,7 +54,7 @@ const allSongs = [
         name: `You're My World`,
         artist: `Anya Taylor Joy`,
         length: 181,
-        audio: `everybodys-gotta-live.mp3`,
+        audio: `you-are-my-world-regular.mp3`,
         playing: false,
       }, {
         songId: 8,
@@ -83,14 +83,13 @@ const allSongs = [
     } 
 ]
 // Append a new list item with the Object data passed to the function
-const appendToList = function(item) {
+const appendToList = function(item, index) {
     document.querySelector(`#playlist`).innerHTML += `
-    <article class="song ${(item.playing) ? `playing` : ""}">
+    <article data-index="${index}" class="song ${(item.playing) ? `playing` : ""}">
         <img src="./assets/covers/${item.image}" alt="${item.name}">
         <h2>${item.name}</h2>
         <h3>${item.artist}</h3>
-        <h3>${(item.length/60).toFixed(2)} mins</h3>
-        <button id="playButton${item.songId}">Play</button>
+        <h3>${(item.length/60).toFixed(2)} mins</h3>  
     </article>
   `
 }
@@ -126,23 +125,36 @@ const filterAndPrint = function() {
 //Print results on page load
 window.addEventListener(`load`, function(event) {
   filterAndPrint()
+});
+
+//Music Player
+let playingIndex = 0
+const song = new Audio()
+song.src = `/assets/music/${allSongs[playingIndex].audio}`
+
+const playButton = document.querySelector(`#playSong`)
+const playPrevious = document.querySelector(`#previousSong`)
+const playNext = document.querySelector(`#nextSong`)
+
+playButton.addEventListener(`click`, function(event){
+  if (song.paused){
+    song.play();
+    playButton.textContent = `⏸`
+  } else{
+    song.pause()
+    playButton.textContent = `▶️`
+  }
 })
 
+playNext.addEventListener(`click`, function(event){
+  playingIndex = ((playingIndex + 1) > (allSongs.length - 1)) ? 0 : playingIndex + 1
 
-
-
-
-
-
-
-    
-    
-  //   const song = new Audio()
-
-  //   playButton.addEventListener(`click`, function(event) {
-  //     console.log(`playing`)
-  //     song.play()  
-  // })
-    
+  if (!song.paused) {
+    song.src = `/assets/music/${allSongs[playingIndex].audio}`
+    song.play()
+  } else {
+    song.src = `/assets/music/${allSongs[playingIndex].audio}`
+  }
+})
 
     

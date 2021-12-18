@@ -33,6 +33,17 @@ body{
     border: none;
 }
 
+/* Play Buttons */
+.playPause{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+    gap: 1rem;
+}
+.play{
+    border: .2em #242425 solid;
+}
+
 /* Playlist Style */
 .playlist{
     display: grid;
@@ -42,8 +53,8 @@ body{
 }
 
 .song{
-    background-color:#FFFFFF;
-    border: .2rem solid black;
+    background-color:#FAFAFA;
+    border: .2rem solid #242425;
     padding: 1em;
 }
 
