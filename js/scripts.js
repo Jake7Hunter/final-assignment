@@ -1,5 +1,9 @@
+//Imports
 import { allSongs } from "./data.js"
 
+//Filter Form shortcut
+const filterForm = document.querySelector(`#filter`)
+const sortSong = document.querySelector(`#songSort`)
 //Main variables for player
 let playingIndex = 0
 const song = new Audio()
@@ -8,12 +12,17 @@ const playButton = document.querySelector(`#playSong`)
 const playPrevious = document.querySelector(`#previousSong`)
 const playNext = document.querySelector(`#nextSong`)
 const playlistEle = document.querySelector(`#playlist`)
+const songVol = document.querySelector(`#songVol`)
 const currentSong = document.querySelector(`#currentSong`)
 const currentSongInfo = function(){
-  currentSong.innerHTML = `<h2 class"currentSong">Current Song: ${allSongs[playingIndex].name}</h2> <h3 class="artist">By: ${allSongs[playingIndex].artist}</h3>`
+currentSong.innerHTML = `<h2 class"currentSong">Current Song: ${allSongs[playingIndex].name}</h2> <h3 class="artist">By: ${allSongs[playingIndex].artist}</h3>`
 }
-//Filter Form shortcut
-const filterForm = document.querySelector(`#filter`)
+//Print results on page load
+window.addEventListener(`load`, function(event, item) {
+  filterAndPrint()
+});
+
+//Creating UI elements
 
 // Append a new list item with the Object data passed to the function
 const appendToList = function(item, index) {
@@ -33,17 +42,16 @@ const filterAndPrint = function() {
 
   //Sets playlist to blank to refrain from unwanted adding
   document.querySelector(`#playlist`).innerHTML = ``
-
   //Create list in HTML after filters run
   allSongs
   //Filter by search
   .filter(item => item.name.toUpperCase().includes(nameSearch.toUpperCase())
   ||item.artist.toUpperCase().includes(nameSearch.toUpperCase()))
-
   //Appends each object to HTML
   .forEach(appendToList)
 }
 
+//Filter form
 filterForm.addEventListener(`input`, function(event) {
   //Stop for from refreshing
   event.preventDefault()
@@ -52,10 +60,7 @@ filterForm.addEventListener(`input`, function(event) {
   filterAndPrint()
 })
 
-//Print results on page load
-window.addEventListener(`load`, function(event) {
-  filterAndPrint()
-});
+//Music Player
 
 //Click play/pause button to start/stop song
 playButton.addEventListener(`click`, function(event){
@@ -98,6 +103,11 @@ playPrevious.addEventListener(`click`, function(event){
   currentSongInfo()
 })
 
+//Change songs volume level
+songVol.addEventListener(`input`, function(event){
+  song.volume = songVol.value
+})
+
 //Click individual songs to have them play
 playlistEle.addEventListener(`click`, function(event){
   const songToPlay = event.target
@@ -111,4 +121,3 @@ playlistEle.addEventListener(`click`, function(event){
   //Display current song info
   currentSongInfo()
 })
-
