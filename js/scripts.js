@@ -52,7 +52,7 @@ const allSongs = [
         songId: 7,
         image: `soho-3.jpg`,
         name: `You're My World`,
-        artist: `Anya Taylor Joy`,
+        artist: `Anya Taylor-Joy`,
         length: 181,
         audio: `you-are-my-world-regular.mp3`,
         playing: false,
@@ -145,8 +145,6 @@ playButton.addEventListener(`click`, function(event){
   if (song.paused){
     song.play();
     playButton.textContent = `⏸`
-    isSongPlaying = true
-    console.log(isSongPlaying)
   } else{
     song.pause()
     playButton.textContent = `▶️`
@@ -156,7 +154,19 @@ playButton.addEventListener(`click`, function(event){
 //Click "next" button to go to the next song 
 playNext.addEventListener(`click`, function(event){
   playingIndex = ((playingIndex + 1) > (allSongs.length - 1)) ? 0 : playingIndex + 1
-  //If song is paused, play it
+  //If song is already playing, continue playing
+  if (!song.paused) {
+    song.src = `/assets/music/${allSongs[playingIndex].audio}`
+    song.play()
+  } else {
+    song.src = `/assets/music/${allSongs[playingIndex].audio}`
+  }
+})
+
+//Click "previous" button to go to last song
+playPrevious.addEventListener(`click`, function(event){
+  playingIndex = ((playingIndex - 1) > (allSongs.length - 1)) ? 0 : playingIndex - 1
+  //if song is already playing, continue playing
   if (!song.paused) {
     song.src = `/assets/music/${allSongs[playingIndex].audio}`
     song.play()

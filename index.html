@@ -14,11 +14,12 @@
         <!-- sorting and filter features -->
         <h3 class="filterh3">Filter</h3>
         <form class="filter" id="filter">
+            <!-- Filter by name -->
           <fieldset class="search">
                 <label for="songName">Song Title:</label>
                 <input type="search" id="songName" name="songName">
             </fieldset>
-
+            <!-- Sorting -->
             <fieldset class="sort">
                 <label for="songSort">Sort:</label>
                 <select name="songSort" id="songSort">
@@ -28,12 +29,16 @@
                 </select>
               </fieldset>
         </form>
+
+        <!-- Music Player Buttons -->
         <section class="playPause">
             <button class="play" id="previousSong">⏪</button>
             <button class="play" id="playSong">▶️</button>
             <button class="play" id="nextSong">⏩</button>
         </section>
     </header>
+
+    <!-- Music Player Playlist -->
     <section class="playlist" id="playlist">
         
     </section>
