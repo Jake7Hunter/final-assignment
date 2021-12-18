@@ -7,6 +7,11 @@ body{
     color: #242425;
 }
 
+button{
+    padding: 1em;
+    font-size: 1rem;
+}
+
 /* Funtime Music Styles */
 .title{
     text-align: center;
@@ -42,6 +47,7 @@ body{
 }
 .play{
     border: .2em #242425 solid;
+    background-color: #FAFAFA;
 }
 
 /* Playlist Style */
@@ -52,6 +58,7 @@ body{
     text-align: center;
 }
 
+/* Song */
 .song{
     background-color:#FAFAFA;
     border: .2rem solid #242425;
@@ -65,10 +72,7 @@ body{
 
 }
 
-button{
-    padding: 1em;
-    font-size: 1rem;
-}
+
 
 .playing{
     opacity: 0.5;

@@ -85,8 +85,8 @@ const allSongs = [
 // Append a new list item with the Object data passed to the function
 const appendToList = function(item, index) {
     document.querySelector(`#playlist`).innerHTML += `
-    <article data-index="${index}" class="song ${(item.playing) ? `playing` : ""}">
-        <img src="./assets/covers/${item.image}" alt="${item.name}">
+    <article class="song ${(item.playing) ? `playing` : ""}">
+        <img data-index="${index}" src="./assets/covers/${item.image}" alt="${item.name}">
         <h2>${item.name}</h2>
         <h3>${item.artist}</h3>
         <h3>${(item.length/60).toFixed(2)} mins</h3>  
@@ -128,32 +128,51 @@ window.addEventListener(`load`, function(event) {
 });
 
 //Music Player
+
+//Main variables for player
 let playingIndex = 0
 const song = new Audio()
 song.src = `/assets/music/${allSongs[playingIndex].audio}`
-
 const playButton = document.querySelector(`#playSong`)
 const playPrevious = document.querySelector(`#previousSong`)
 const playNext = document.querySelector(`#nextSong`)
+const playlistEle = document.querySelector(`#playlist`)
 
+//Click play/pause button to start/stop song
 playButton.addEventListener(`click`, function(event){
+  isSongPlaying = true
+  console.log(isSongPlaying)
   if (song.paused){
     song.play();
     playButton.textContent = `⏸`
+    isSongPlaying = true
+    console.log(isSongPlaying)
   } else{
     song.pause()
     playButton.textContent = `▶️`
   }
 })
 
+//Click "next" button to go to the next song 
 playNext.addEventListener(`click`, function(event){
   playingIndex = ((playingIndex + 1) > (allSongs.length - 1)) ? 0 : playingIndex + 1
-
+  //If song is paused, play it
   if (!song.paused) {
     song.src = `/assets/music/${allSongs[playingIndex].audio}`
     song.play()
   } else {
     song.src = `/assets/music/${allSongs[playingIndex].audio}`
+  }
+})
+
+//Click individual songs to have them play
+playlistEle.addEventListener(`click`, function(event){
+  const songToPlay = event.target
+
+  if (songToPlay.matches(`img`)){
+    playingIndex = Number(songToPlay.dataset.index)
+    song.src = `/assets/music/${allSongs[playingIndex].audio}`
+    song.play()
   }
 })
 
