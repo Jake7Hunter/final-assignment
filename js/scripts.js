@@ -16,6 +16,7 @@ const currentSong = document.querySelector(`#currentSong`)
 const currentSongInfo = function(){
 currentSong.innerHTML = `<h2 class"currentSong">Current Song: ${allSongs[playingIndex].name}</h2> <h3 class="artist">By: ${allSongs[playingIndex].artist}</h3>`
 }
+
 //Print results on page load
 window.addEventListener(`load`, function(event, item) {
   filterAndPrint()
@@ -43,6 +44,7 @@ const appendToList = function(item) {
     </article>
   `
 }
+
 //Filter each item and them to the playlist
 const filterAndPrint = function() {
   //Filter songs
@@ -99,6 +101,15 @@ playPrevious.addEventListener(`click`, function(event){
     song.src = `/assets/music/${allSongs[playingIndex].audio}`
   }
   //Display current song info
+  currentSongInfo()
+})
+
+//On song end, play next song
+song.addEventListener(`ended`, function(event){
+  playingIndex = ((playingIndex + 1) > (allSongs.length - 1)) ? 0 : playingIndex + 1
+  //If song is already playing, continue playing
+  song.src = `/assets/music/${allSongs[playingIndex].audio}`
+  song.play()
   currentSongInfo()
 })
 
