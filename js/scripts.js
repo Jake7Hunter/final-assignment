@@ -3,7 +3,6 @@ import { allSongs } from "./data.js"
 
 //Filter Form shortcut
 const filterForm = document.querySelector(`#filter`)
-const sortSong = document.querySelector(`#songSort`)
 //Main variables for player
 let playingIndex = 0
 const song = new Audio()
@@ -24,11 +23,20 @@ window.addEventListener(`load`, function(event, item) {
 
 //Creating UI elements
 
+//Filter form
+filterForm.addEventListener(`input`, function(event) {
+  //Stop for from refreshing
+  event.preventDefault()
+
+  //Run filters and print results
+  filterAndPrint()
+})
+
 // Append a new list item with the Object data passed to the function
-const appendToList = function(item, index) {
+const appendToList = function(item) {
     document.querySelector(`#playlist`).innerHTML += `
     <article class="song ${(item.playing) ? `playing` : ""}">
-        <img data-index="${index}" src="./assets/covers/${item.image}" alt="${item.name}">
+        <img data-index="${item.songId}" src="./assets/covers/${item.image}" alt="${item.name}">
         <h2>${item.name}</h2>
         <h3>${item.artist}</h3>
         <h3>${(item.length/60).toFixed(2)} mins</h3>  
@@ -50,15 +58,6 @@ const filterAndPrint = function() {
   //Appends each object to HTML
   .forEach(appendToList)
 }
-
-//Filter form
-filterForm.addEventListener(`input`, function(event) {
-  //Stop for from refreshing
-  event.preventDefault()
-
-  //Run filters and print results
-  filterAndPrint()
-})
 
 //Music Player
 

@@ -1,7 +1,7 @@
 //Song playlist objects
 export const allSongs = [
     {
-      songId: 1,
+      songId: 0,
       image: `adele.jpeg`,
       name: `Love Is A Game`,
       artist: `Adele`,
@@ -9,7 +9,7 @@ export const allSongs = [
       audio: `love-is-a-game.mp3`,
       playing: false,
     }, {
-        songId: 2,
+        songId: 1,
         image: `soho-2.jpeg`,
         name: `You're My World (Soho)`,
         artist: `Anya Taylor-Joy`,
@@ -17,7 +17,7 @@ export const allSongs = [
         audio: `you-are-my-world-soho.mp3`,
         playing: false,
       }, {
-        songId: 3,
+        songId: 2,
         image: `everybodys-gotta-live.jpeg`,
         name: `Everybody's Gotta Live`,
         artist: `Love`,
@@ -25,7 +25,7 @@ export const allSongs = [
         audio: `everybodys-gotta-live.mp3`,
         playing: false,
       }, {
-        songId: 4,
+        songId: 3,
         image: `warning.jpg`,
         name: `Misery`,
         artist: `Green Day`,
@@ -33,7 +33,7 @@ export const allSongs = [
         audio: `misery.mp3`,
         playing: false,
       }, {
-        songId: 5,
+        songId: 4,
         image: `soho-3.jpg`,
         name: `Downtown (Uptempo)`,
         artist: `Anya Taylor-Joy`,
@@ -41,7 +41,7 @@ export const allSongs = [
         audio: `downtown-uptempo.mp3`,
         playing: false,
       }, {
-        songId: 6,
+        songId: 5,
         image: `land-of-1000-dances.jpg`,
         name: `Land Of 1000 Dances`,
         artist: `The Walker Brothers`,
@@ -49,7 +49,7 @@ export const allSongs = [
         audio: `land-of-1000-dances.mp3`,
         playing: false,
       }, {
-        songId: 7,
+        songId: 6,
         image: `soho-3.jpg`,
         name: `You're My World`,
         artist: `Anya Taylor-Joy`,
@@ -57,7 +57,7 @@ export const allSongs = [
         audio: `you-are-my-world-regular.mp3`,
         playing: false,
       }, {
-        songId: 8,
+        songId: 7,
         image: `heroes.jpg`,
         name: `Heroes`,
         artist: `David Bowie`,
@@ -65,7 +65,7 @@ export const allSongs = [
         audio: `heroes.mp3`,
         playing: false,
     }, {
-        songId: 9,
+        songId: 8,
         image: `soho-2.jpeg`,
         name: `Neon`,
         artist: `Stephen Price`,
@@ -73,7 +73,7 @@ export const allSongs = [
         audio: `neon.mp3`,
         playing: false,
     }, {
-        songId: 10,
+        songId: 9,
         image: `soho-3.jpg`,
         name: `Downtown (Downtempo)`,
         artist: `Anya Taylor-Joy`,
